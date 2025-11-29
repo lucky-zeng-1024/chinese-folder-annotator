@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+    <id>com.zeng.chineseannotator.plugin</id>
+    <name>Chinese Folder Annotator</name>
+    <vendor email="794821664@qq.com" url="https://www.code119.online">zeng</vendor>
+
+    <description><![CDATA[
+    <h2>中文文件夹标注（Chinese Folder Annotator）</h2>
+    <p>在项目树中为文件夹添加中文标注，可选择“保留原名(中文)”或“仅显示中文”。支持项目级持久化与快捷键。</p>
+
+    <h3>功能特性</h3>
+    <ul>
+      <li>为任意文件夹添加中文标注</li>
+      <li>支持隐藏原始名称，仅显示中文</li>
+      <li>支持快捷键“切换显示原名/中文”</li>
+      <li>设置面板集中管理，支持批量清空</li>
+      <li>提供 Tools 菜单与项目树右键菜单入口</li>
+      <li>即时生效，项目级持久化（.idea/chineseName.xml）</li>
+    </ul>
+
+    <h3>快速上手</h3>
+    <ol>
+      <li>在 Project 视图中右键一个文件夹 → 选择 <b>Add Chinese Annotation</b></li>
+      <li>输入中文名称；可选：勾选 “Hide original folder name” 仅显示中文</li>
+      <li>点击 OK，项目树名称立即更新</li>
+    </ol>
+
+    <h3>添加中文标注快捷键</h3>
+    <ol>
+      <li>打开 Settings → Keymap</li>
+      <li>搜索：Add Chinese Annotation（动作 ID：<code>ChineseName.AddAnnotation</code>）</li>
+      <li>右键该动作 → Add Keyboard Shortcut → 按下你想要的组合键（例如 <code>Ctrl+Alt+Shift+C</code>）→ OK</li>
+    </ol>
+
+    <h3>切换显示原名/中文标注快捷键</h3>
+    <ol>
+      <li>Settings → Tools → Chinese Name Annotator：勾选“Enable toggle to show original names (Tools → Toggle Show Original Names)”</li>
+      <li>配置快捷键</li>
+      <li>搜索：Toggle Show Original Names（动作 ID：<code>ChineseName.HoldShowOriginal</code>）</li>
+      <li>右键该动作 → Add Keyboard Shortcut → 按下你想要的组合键（例如 <code>Ctrl+Alt+Shift+O</code>）→ OK</li>
+    </ol>
+
+    <h3>设置入口</h3>
+    <ul>
+      <li>右键菜单：Project 视图中的文件夹 → Add Chinese Annotation</li>
+      <li>顶部菜单：Tools → Add Chinese Annotation / Toggle Show Original Names</li>
+      <li>配置面板：Settings/Preferences → Tools → Chinese Name Annotator</li>
+    </ul>
+
+    <p>提示：若未立即显示，按 F5 刷新 Project 视图。</p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      <ul>
+        <li><b>1.0.0</b> Initial release with folder annotation support</li>
+      </ul>
+    ]]>
+    </change-notes>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="231.0"/>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/plugin_structure/plugin_components.html on how to use components -->
+    <extensions defaultExtensionNs="com.intellij">
+        <projectService serviceImplementation="com.github.chinesename.service.ChineseNameService"/>
+        <projectConfigurable parentId="tools" instance="com.github.chinesename.ui.ChineseNameConfigurable" 
+                             id="com.github.chinesename.ui.ChineseNameConfigurable" 
+                             displayName="Chinese Name Annotator"/>
+        <treeStructureProvider implementation="com.github.chinesename.provider.ChineseNameTreeStructureProvider"/>
+        <projectViewNodeDecorator implementation="com.github.chinesename.provider.ChineseNameProjectViewNodeDecorator"/>
+    </extensions>
+
+    <actions>
+        <action id="ChineseName.AddAnnotation" class="com.github.chinesename.action.AddAnnotationAction"
+                text="Add Chinese Annotation" description="Add Chinese annotation to selected folder">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="last"/>
+            <add-to-group group-id="ToolsMenu" anchor="first"/>
+        </action>
+        <action id="ChineseName.HoldShowOriginal" class="com.github.chinesename.action.HoldShowOriginalAction"
+                text="Toggle Show Original Names" description="按一次显示原名称，再按一次恢复中文标注">
+            <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ChineseName.AddAnnotation"/>
+        </action>
+    </actions>
+
+</idea-plugin>

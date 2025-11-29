@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChineseNameService">
+    <option name="annotations">
+      <map>
+        <entry key="/path/to/test-project/src">
+          <value>
+            <ChineseNameService.FolderAnnotation>
+              <option name="chineseName" value="源代码"/>
+              <option name="hideOriginalName" value="false"/>
+            </ChineseNameService.FolderAnnotation>
+          </value>
+        </entry>
+        <entry key="/path/to/test-project/src/java">
+          <value>
+            <ChineseNameService.FolderAnnotation>
+              <option name="chineseName" value="Java源文件"/>
+              <option name="hideOriginalName" value="false"/>
+            </ChineseNameService.FolderAnnotation>
+          </value>
+        </entry>
+        <entry key="/path/to/test-project/src/java/main">
+          <value>
+            <ChineseNameService.FolderAnnotation>
+              <option name="chineseName" value="主程序"/>
+              <option name="hideOriginalName" value="false"/>
+            </ChineseNameService.FolderAnnotation>
+          </value>
+        </entry>
+        <entry key="/path/to/test-project/src/java/resource">
+          <value>
+            <ChineseNameService.FolderAnnotation>
+              <option name="chineseName" value="资源"/>
+              <option name="hideOriginalName" value="false"/>
+            </ChineseNameService.FolderAnnotation>
+          </value>
+        </entry>
+        <entry key="/path/to/test-project/src/java/resource/script">
+          <value>
+            <ChineseNameService.FolderAnnotation>
+              <option name="chineseName" value="脚本"/>
+              <option name="hideOriginalName" value="false"/>
+            </ChineseNameService.FolderAnnotation>
+          </value>
+        </entry>
+        <entry key="/path/to/test-project/src/java/resource/script/gdgzs">
+          <value>
+            <ChineseNameService.FolderAnnotation>
+              <option name="chineseName" value="广东广州市"/>
+              <option name="hideOriginalName" value="true"/>
+            </ChineseNameService.FolderAnnotation>
+          </value>
+        </entry>
+        <entry key="/path/to/test-project/src/java/resource/script/gdszs">
+          <value>
+            <ChineseNameService.FolderAnnotation>
+              <option name="chineseName" value="广东深圳市"/>
+              <option name="hideOriginalName" value="true"/>
+            </ChineseNameService.FolderAnnotation>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
+

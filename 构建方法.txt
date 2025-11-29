@@ -1,0 +1,1 @@
+cd /f/aiproject/chinese-name-plugin && /d/gradle/gradle-8.2/bin/gradle.bat -g D:/gradle/repository --no-daemon clean buildPlugin -x test -x buildSearchableOptions -x jarSearchableOptions --warning-mode all | cat
